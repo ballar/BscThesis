@@ -1,0 +1,96 @@
+
+\chapter{Bevezetés}                  
+
+{\ }
+
+Magyarországon a földrengés aktivitás a lemezperemi területekhez  képest alacsony, viszont ez koránt sem jelenti azt, hogy elhanyagolható. A jelenlegi kutatások szerint a Kárpát-medence közepes szeizmicitású terület. Az ország területén évente 100-120 alig érezhető, 2,5-nél kisebb magnitúdójú  és  4-5 már jól érezhető, de károkat még nem okozó, 2,5-3 magnitúdójú földrengés fordul elő.  Jelentősebb károkat okozó rengés 15-20 évenként, míg erős, nagyon nagy károkat okozó, 5,5-6 magnitúdójú földrengés 40-50 évenként pattan ki. A legnagyobb ismert, Magyarország területén kipattant  földrengés 1763-ban  Komárom területén keletkezett, 6,3 körüli magnitúdóval. Földrengés szempontjából a legveszélyeztetettebb területek Eger és környéke, Komárom és Mór környéke valamint Jászberény, Kecskemét és Dunaharaszti környéke \cite{mónus,évkönyv}. 
+
+Hazánkban földrengéstervezésre, az Európai Unió tagállamaként,  az Európai Unió egységes földrengésszabványa, az Eurocode-8 (MSZ EN 1998 \cite{ec8}) van érvényben, 2009. január 01. óta. A szabvány célkitűzései az emberélet védelme -a teherbírási követelmények kielégítésével-, az épületek  károsodásának korlátozása -a használhatósági határállapotok kielégítésével-, és a polgári védelem szempontjából létfontosságú épületek (kórház, mentőállomás, telefonközpont, tűzoltósági épület, transzformátorállomás, stb.) működőképességének biztosítása. Nagyon fontos továbbá a földrengésállóság biztosítása veszélyes ipari létesítmények (pl. atomerőmű, kőolaj finomító, gázterminál) esetében  a katasztrófahalmozódás elkerülése érdekében.
+
+A földrengés károsodás kockázatának csökkentése történhet a rezgést csökkentő és elszigetelő szerkezeti rendszerek beépítésével. Ez megvalósítható  aktív vagy passzív kontroll rendszerrel. Aktív kontroll rendszer esetén az épületben dinamikus terhelés hatására számítógép vezérléssel beindul egy lengés-kiegyensúlyozó hidraulikus rendszer, passzív kontroll rendszer  esetében pedig az alapozás és a felmenő szerkezet közé rugalmas-képlékeny energiaelnyelő  szerkezeti rendszer, úgynevezett szeizmikus szigetelés kerül beépítésre. Ezeket a  szerkezeti megoldásokat akár már meglévő épületszerkezeteken is lehet alkalmazni utólagos beépítéssel. 
+
+A kontroll rendszerekre napjainkban egyre több megoldás válik elérhetővé, azonban az így még összetettebbé váló épületszerkezetek viselkedése kevésbé ismert, és nehezen modellezhető. Az ilyen szerkezetek viselkedésének vizsgálata szeizmikus vagy más dinamikus terhelésre  a mai építőmérnök kutatók fontos feladata.%\\[3pt]
+
+A nagyobb szerkezetekre felírt dinamikus mozgásegyenletek megoldása már önmagában is összetett feladat. A többszabadságfokú rendszerek mozgása mátrix - differenciálegyenlettel jellemezhető, melynek megoldására több matematikai metódus is létezik, azonban az analitikus megoldás nem mindig lehetséges a számítógépek kapacitásának véges volta miatt, ezért sokszor a numerikus eljárások kerülnek előtérbe. 
+
+A többszabadságfokú lineáris rendszerek tetszőleges erővel gerjesztett rezgését az alábbi mátrix-differenciálegyenlet írja le:
+%
+\begin{equation}
+\label{rezgegy}
+\mathbf{M}\mathbf{\ddot{x}}(t)+\mathbf{C}\mathbf{\dot{x}}(t)+\mathbf{K}\mathbf{x}(t) = \mathbf{p}(t),
+\end{equation}
+%
+ahol $\mathbf{M}$ a  szerkezetre vonatkozó tömegmátrix, $\mathbf{C}$ a csillapítási mátrix, $\mathbf{K}$ a szerkezet merevségi mátrixa, $\mathbf{\ddot{x}}(t)$, $\mathbf{\dot{x}}(t)$ és $\mathbf{x}(t)$ rendre a szerkezet időtől függő gyorsulás-, sebesség- és elmozdulásvektora és $\mathbf{p}(t)$ pedig a tehervektor az idő függvényében.
+
+A nemlineáris rendszerek gerjesztett rezgését pedig a következő differenciálegyenlet jellemzi:
+\begin{equation}
+\label{rezgegy_nemlin}
+\mathbf{M}\mathbf{\ddot{x}}(t)+\mathbf{C}\mathbf{\dot{x}}(t)+f_s(\mathbf{x}) = \mathbf{p}(t),
+\end{equation}
+%
+ahol $f_s(\mathbf{x})$ a szerkezetre vonatkozó, elmozdulástól függő rugalmas visszatérítő erő, a többi pedig rendre megegyezik a \eqref{rezgegy} egyenletnél ismertetett jelölésekkel.
+
+Ezek megoldására adott kezdő időpontbeli elmozdulás- és sebességvektor, azaz $ \mathbf{x}(0) = \mathbf{x}_0$  és $\mathbf{\dot{x}}(0) = \mathbf{v}_0 = \mathbf{\dot{x}}_0$  kezdeti feltételek esetén direkt integrálás alkalmazása elterjedt, mert komplex modálanalízis használata nagyobb rendszerek esetén bonyolult, vagy egyáltalán nem vezet megoldásra. A modálanalízis nagyméretű feladatokra alkalmazásánál kérdés a módusok összegzése és az alkalmazható csillapítási mátrix, a számítás pedig meglehetősen bonyolult.  A kezdő időpontbeli gyorsulások értéke, azaz az $\mathbf{\ddot{x}}(0) = \mathbf{a}_0 = \mathbf{\ddot{x}}_0$ vektor az adott kezdeti feltételekkel az
+%
+\begin{equation}
+\label{first_step_equation}
+\mathbf{M}\mathbf{\ddot{x}}_0+\mathbf{C}\mathbf{\dot{x}}_0+\mathbf{K}\mathbf{x}_0=\mathbf{p}_{0}
+\end{equation}
+lineáris, illetve az
+\begin{equation}
+\label{first_step_equation_nl}
+\mathbf{M}\mathbf{\ddot{x}}_0+\mathbf{C}\mathbf{\dot{x}}_0+f_s(\mathbf{x}_0)=\mathbf{p}_{0}
+\end{equation}
+%
+ nemlineáris egyenletrendszerből számítható. Az eljárás a mátrix-differenciálegyenlet  időbeni  diszkretizálásán alapul. A kezdeti időpontban ismert adatokból $\Delta{t}$ állandó nagyságú lépésközönként számítjuk az elmozdulásokat. A numerikus számításra számos eljárás létezik, és ezek fejlesztése ma is aktuális probléma.
+ 
+
+ Mivel dolgozatomban elsősorban földrengésteherre vizsgált szerkezetekkel foglalkozom, a továbbiakban az $\mathbf{x}(t)$ elmozdulásvektornak az alábbi, a szerkezetek támaszrezgésénél alkalmazott felbontását használom:
+\begin{equation}
+\mathbf{x}(t) = \mathbf{u}_g(t)+\mathbf{u}(t)
+\end{equation}
+ahol az $\mathbf{u}_g$ vektor a statikusan alkalmazott támaszmozgásból származó merevtestszerű elmozdulást leíró elmozdulásvektorral egyezik meg, az $\mathbf{u}$ vektor pedig az alakváltozást eredményező elmozdulásvektorral.
+Ekkor felhasználva, hogy a merevtestszerű $\mathbf{u}_g$ vektorból nem származik alakváltozás, így erő sem, a differenciálegyenletet -lineáris esetben- a következő alakban írhatjuk fel:
+\begin{equation}
+\label{támrezg1}
+\mathbf{M}\mathbf{\ddot{u}}(t)+\mathbf{C}\mathbf{\dot{u}}(t)+\mathbf{K}\mathbf{u}(t) = -\mathbf{M}\mathbf{\ddot{u}}_g(t).
+\end{equation}
+A $-\mathbf{M}\mathbf{\ddot{u}}_g(t)$ kifejezést tekinthetjük teher jellegűnek, így az \eqref{támrezg1} egyenlet átírható a
+\begin{equation}
+\label{rezgesegy}
+\mathbf{M}\mathbf{\ddot{u}}(t)+\mathbf{C}\mathbf{\dot{u}}(t)+\mathbf{K}\mathbf{u}(t) = \mathbf{q}(t)
+\end{equation}
+alakra. Nemlineáris esetben az \eqref{rezgesegy} egyenlet a következő formulára módosul:
+\begin{equation}
+\label{rezgesegy_nemlin}
+ \mathbf{M}\mathbf{\ddot{u}}(t)+\mathbf{C}\mathbf{\dot{u}}(t)+f_s(\mathbf{u}) = \mathbf{q}(t).
+ \end{equation}
+Mivel a \eqref{rezgesegy} és \eqref{rezgesegy_nemlin} egyenletek csak a  tehertagban különböznek az eredeti \eqref{rezgegy} és \eqref{rezgegy_nemlin} differenciálegyenletektől, és a mérnököket többnyire csak az igénybevételek és az azokat okozó alakváltozások érdeklik, a továbbiakban a támaszrezgéshez tartozó \eqref{rezgesegy} és \eqref{rezgesegy_nemlin} differenciálegyenleteket használom. 
+
+Az egyenletek megoldása erősen függ a csillapítási mátrix előállításának módjától.
+Arányos csillapításnak azt nevezzük, amikor a külső - sebességgel arányos - csillapítás 
+mátrixa (vagy a belső csillapításnak megfelelő ekvivalens csillapítási mátrix) a tömegmátrix 
+és a merevségi mátrix (vagy ezek hatványai) lineáris kombinációjaként állítható elő:
+
+\begin{equation}
+\mathbf{C} = \alpha\mathbf{M}+\beta\mathbf{K}.
+\end{equation}
+Ekkor a \eqref{rezgesegy} lineáris és \eqref{rezgesegy_nemlin}  nemlineáris egyenlet felírható az alábbi alakban is:
+\begin{align}
+\mathbf{M}\mathbf{\ddot{u}}(t)+(\alpha\mathbf{M}+\beta\mathbf{K})\mathbf{\dot{u}}(t)+\mathbf{K}\mathbf{u}(t) & = \mathbf{q}(t) \\
+\mathbf{M}\mathbf{\ddot{u}}(t)+(\alpha\mathbf{M}+\beta\mathbf{K})\mathbf{\dot{u}}(t)+f_s(\mathbf{u}) & = \mathbf{q}(t).
+\end{align}
+
+Arányos csillapítás esetén a modálanalízisnél használt $\mathbf{V}^T\mathbf{C}\mathbf{V}$ szorzat diagonális, Éppen ezért, ha a csillapítás nélküli rendszer sajátvektoraira bontjuk a rezgést,
+akkor a differenciálegyenlet-rendszer egyszabadságfokú differenciálegyenletekre esik szét, tehát a feladat megoldása sokkal egyszerűbb. A továbbiakban arányos csillapítást tételezek fel.%\\[6pt]
+
+Több vizsgálati módszer is létezik az épületszerkezetek viselkedésének dinamikus terhelés alatti vizsgálatára. Az építőmérnöki kutatásoknál vizsgált -ismeretlen paraméterekkel vagy anyagtulajdonságokkal rendelkező- dinamikus szerkezetek esetében a legjobb  megoldást a  hibrid szimulációs eljárás jelenti. 
+
+A hibrid szimuláció \cite{hibrid wiki} egy költséghatékony kísérleti módszer a nagyobb építőmérnöki szerkezetek dinamikus teljesítményének kiértékelésére. A módszer alapötlete, hogy a szerkezet frekvenciafüggő  viselkedését - mint a tehetetlenségi és csillapító hatásokat  - numerikusan modellezzük, az elmozdulás-függő viselkedést (mint a merevséget, energia-disszipációt vagy tömeg tulajdonságokat) pedig kísérleti úton értékeljük. A szerkezetet (a teljes vagy referencia-szerkezetet) az alszerkezetek módszerével két részre oszthatjuk: (1) a fizikai vagy kísérleti alszerkezetre,ami általában a bonyolultabb viselkedésű elemeket tartalmazza, és (2) a numerikus (vagy számítógépes, analitikus) alszerkezetre, ami pedig az ismert viselkedésű szerkezeti elemek numerikus modellje.  A kapcsolódás a két alszerkezet között az egyensúly és a kompatibilitás biztosításával érhető el, a határfelületen átviteli rendszert alkalmazva. Ez lehet például egy szervo-hidraulikus aktuátor.
+
+A valós idejű beágyazott rendszerek   számítástechnikai kapacitásának fejlődése lehetővé tette a valós idejű hibrid szimuláció megvalósítását. A hibrid szimulációhoz képest a valós idejű hibrid szimulációs rendszer lehetőséget nyújt a fizikai összetevők  frekvenciafüggő viselkedésének pontos reprezentálására  mind a globális teljesítmény (referencia-szerkezet), mind pedig a lokális viselkedés (fizikai alszerkezet) vizsgálata során. A határfelületi kölcsönhatást az alszerkezetek között átviteli rendszerként működő szervo-hidraulikus aktuátorral vagy rázópaddal biztosítják. A határfelületen a peremfeltételek valós idejű teljesülését irányított átviteli rendszerrel biztosítják. A rendszer teljesítménye négy fő tényezőtől függ: (1) a teljes szerkezet dinamikájától, (2) a numerikus számítás pontosságától, (3) a  teljes szerkezet alszerkezetekre osztásától és (4) a határfelületi peremfeltételek teljesülésétől az átviteli rendszerben.
+
+Dolgozatomban az építőmérnöki gyakorlatban használt főbb időlépéses integráló formulákat és a hibrid szimulációs eljárást elemzem saját készítésű programok segítségével. Először a \ref{chap:idolep_tan}. fejezetben a numerikus integrálás elméleti hátterét és az integráló algoritmusokat  mutatom be lineáris, illetve nemlineáris rendszerek számítására. Ezután  a \ref{chap: lin+nemlin progi}. fejezetben bemutatom a formulák használatára  fejlesztett lineáris és nemlineáris megoldó programokat, és a \ref{chap: lin+nemlin verif.}. fejezetben ezek verifikálását végzem el szakirodalmi példákon keresztül. Ezt követően a \ref{chap:hibrid}. fejezetben a hibrid szimulációs eljárást ismertetem, majd a \ref{chap: hibrid progi}. fejezetben bemutatom és verifikálom a szintén saját fejlesztésű hibrid szimulációs programot. Végül \ref{chap: hibrid alk}. fejezetben a használatát mutatom be egy szeizmikus szigetelést alkalmazó szerkezeten keresztül. Az egyes programok kódjait és a vizsgált feladatok részletes eredményeit a Függelék tartalmazza.
+
+
+

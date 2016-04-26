@@ -1,0 +1,214 @@
+
+
+\documentclass[a4paper,12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar , english]{babel}
+
+\usepackage{times}
+\usepackage[top=2.5cm, bottom=2.5cm, left=3.7cm, right=2.5cm]{geometry}
+\linespread{1.0}
+%\pagestyle{headings}
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \addtolength{\headheight}{\baselineskip}
+% \renewcommand{\headrulewidth}{1.6pt}
+ 
+\usepackage{amsmath,amssymb,amsfonts,amsthm,amstext}
+
+\usepackage{float}
+\usepackage{multicol, multirow}
+\usepackage{array}
+\usepackage[justification=centering]{caption} %for centering the captions
+
+\usepackage[center]{subfigure} %for subfigures
+\subfiglabelskip=0pt
+
+\usepackage{todonotes}
+\usepackage{fixltx2e}
+\usepackage{xcolor}
+% \usepackage{varioref}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = red, %Colour of internal links
+  citecolor   = green %Colour of citations}
+}
+
+\usepackage[numbered]{bookmark}
+\bookmark[page=1,level=0]{Sample document}
+% \hypertarget{tocpage}{}
+% \usepackage[nottoc]{tocbibind} % linkelés jav
+
+\usepackage{listings} %codes
+
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage[ final ]{pdfpages}
+\includepdfset{ pages=-,  pagecommand={\pagestyle{headings}}}
+%\usepackage[section]{placeins}
+
+\usepackage{gensymb}
+\usepackage{ulem}
+
+\usepackage{verbatim}
+\usepackage[numbered, framed ]{mcode} % autolinebreaks %MatLab code
+
+%\usepackage[maxfloats=100]{morefloats}
+
+% !TEX spellcheck = language_tag
+
+\usepackage{titlesec}
+
+
+%\usepackage{showkeys}
+
+\title{Időlépéses módszerek összehasonlító elemzése és hibrid módszer alkalmazása}
+\author{Balla Réka}
+\date{2014}
+
+%\subtitle{Diplomaterv, vázlattervi szeminárium}
+%\author{Balla Réka \and \\ Dr. Joó Attila László \and Dr. Németh Róbert}
+%\institute{Budapesti Műszaki- és Gazdaságtudományi Egyetem, \\ Hidak és szerkezetek tanszéke}
+
+% konzulensek!!!!!!
+
+\begin{document}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\LARGE\bfseries}{\thechapter. }{0em}{} 
+
+  % \renewcommand{\chaptermark}[1]{%
+% \markboth{\thechapter.\ #1}{}}
+ \thispagestyle{empty}
+ \input{borito.tex}
+ 
+% \maketitle
+\newpage
+
+% \pagestyle{headings}
+\setcounter{page}{1}
+\pagenumbering{roman}
+% \pagestyle{empty}
+
+\selectlanguage{magyar}
+
+\begin{abstract}
+
+\input{Kivonat.tex}
+
+\end{abstract}
+
+
+\selectlanguage{english}
+
+\begin{abstract}
+
+\input{Abstract.tex}
+
+\end{abstract}
+
+
+\selectlanguage{magyar}
+
+\tableofcontents
+% \bookmark[dest=tocpage,level=0]{Tartalomjegyzék} 
+
+
+\listoffigures
+% \bookmark[dest=tocpage,level=0]{Ábrák jegyzéke} 
+
+
+
+\listoftables
+% \bookmark[dest=tocpage,level=0]{Táblázatok jegyzéke} 
+
+\newpage
+{~ }\\
+\vspace{5cm}
+
+\section*{Köszönetnyilvánítás}
+\addcontentsline{toc}{section}{Köszönetnyilvánítás}
+
+Ezúton szeretnék köszönetet mondani tanáromnak, Dr. Németh Róbertnek, hogy a  diplomafélévemben kitartóan ösztönzött, segített, és  munkámat alaposan és kritikusan ellenőrizte. Köszönöm, hogy  tanulmányaim során végig önzetlenül mentorált.
+
+Köszönöm konzulensemnek, Dr. Joó Attilának, hogy felajánlotta ezt az izgalmas témát, lehetőséget biztosított dolgozatom sikeres megírásához, és hasznos szakmai tanácsaival segítette munkámat.
+
+Szeretném megköszönni a családomnak és a barátaimnak diplomamunkám megírásához nyújtott segítségüket, és azt a rengeteg támogatást és bátorítást, amit képzésem ideje alatt kaptam tőlük.
+
+\newpage
+\pagestyle{headings}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+
+\input{1_bevezetes.tex}
+
+\input{2_idolepeses_modszerek.tex}
+
+\input{3_idolep_prog.tex}
+
+\input{4_idolep_verifikacio.tex}
+
+\input{5_hibrid_tanulmany.tex}
+
+\input{6_hibrid_program.tex}
+
+\input{8_alkalmazas.tex}
+
+\input{9_osszefoglalas.tex}
+
+\input{10_fuggelek.tex}
+
+\begin{thebibliography}{1}
+\thispagestyle{empty}
+
+\bibitem{gyorgyi} Györgyi József: Szerkezetek dinamikája. Műegyetemi Kiadó, Budapest (2006).
+  
+\bibitem{chopra} Chopra, A. K.: Dynamics of Structures: Theory and Applications to Earthquake Engineering (4th edn).  Prentice-Hall, Upper Saddle River, New Jersey (2001).
+
+% \bibitem{veges} Bojtár I., Gáspár Zs.: Végeselemmódszer építőmérnököknek. Terc Kft., Budapest (2003).
+
+\bibitem{crcontthe} Chen C., Ricles JM.: Development of direct integration algorithms for structural dynamics using discrete control theory. Journal of Engineering Mechanics \textcopyright ASCE / August (2008).
+
+\bibitem{crhybrid} Chen C., Ricles JM., Marullo TM., Mercan O.: Real-time hybrid testing using the unconditionalli stable explicit CR integration algorithm. Earthquake Engineering and Structural Dynamics, 38:23-44 (2009). 
+
+\bibitem{molnar} Molnár Gergely, Bojtár Imre: 1D nemlineáris feladatok végeselemes vizsgálata explicit időintegrálással. Építés-Építészettudomány, 40 (1-2), 5-32  (2012).
+
+\bibitem{hht} D. Negrut, R. Rampalli, G. Ottarsson, A. Sajdak: On the Use of the HHT Method in the Context of Index 3
+Differential Algebraic Equations of Multibody Dynamics. Int. J. Numer. Meth. Engng., 00:1-6 , (2000).
+
+\bibitem{hht_wiki}\url{ http://opensees.berkeley.edu/wiki/index.php/Hilber-Hughes-Taylor_Method}, (2014.03.11.).
+
+\bibitem{nummat} Faragó István, Horváth Róbert: Numerikus módszerek.\url{tankonyvtar.ttk.bm.hu}, (2013).
+
+\bibitem{hibrid} Andreas H. Schellenberg,  Stephen A. Mahin, Gregory L. Fenves: Advanced Implementation of Hybrid Simulation. PEER Report.Pacific Earthquake Engineering Research Center.  (2009).
+
+\bibitem{hibrid wiki}\url{http://nees.org}, (2014.04.10.).
+
+\bibitem{mónus} Tóth L, Mónus P, Zsíros T, Kiszely M: A Pannon-medence szeizmicitása. Földtani Közlöny 132/különszám, 327-337, (2002).
+
+\bibitem{évkönyv} Tóth L., Mónus P., Kiszely M.: Magyarországi földrengések évkönyve 2013. GeoRisk, Budapest, HU ISSN: 1589-8326, (2014).
+
+\bibitem{shaking}\url{http://www.seasva.gwu.edu/gwu/research_centers/lisr/Shake%20Table.html}, (2014.05.03.).
+
+\bibitem{quasi}\url{http://www.ibk.ethz.ch/masonry/research/dcsm}(2014.05.03.).
+
+\bibitem{elcentro}\url{http://www.vibrationdata.com/elcentro.dat}(2014.05.12.)
+
+\bibitem{simon vigh} Simon József, Vigh L. Gergely: Hidak megerősítése szeizmikus hatásokkal szemben. Építményeink védelme 2013. Ráckeve, Magyarország (2013).
+
+\bibitem{ec8} CEN: EN 1998-1:2008 Eurocode 8: Design of structures for earthquake resistance - Part 1: General rules, seismic actions and rules for buildings (2008).
+
+\bibitem{antiizé}  CEN: EN 15129:2009 : Anti-seismic devices (2009).
+
+\bibitem{rubber} Aykut Erkal, Semih S. Tezcan, Debra F. Laefer: Assessment and Code Considerations for the Combined Effect of Seismic Base Isolation and Viscoelastic Dampers. ISRN Civil Engineering, Article ID 861451 (2011).
+
+\bibitem{lehigh} \url{http://www.nees.lehigh.edu/}(2014.05.20.)
+
+ \thispagestyle{empty}
+\end{thebibliography}
+
+\end{document}
